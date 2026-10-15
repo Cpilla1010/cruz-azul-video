@@ -120,6 +120,14 @@ footer{
 
 <main>
   <h2>Presentación personal en video</h2>
+  
+<div id="identificacionCandidato"
+     style="background:#eaf3ff;padding:15px;
+            border-radius:10px;margin:15px 0;">
+  <strong>Código de postulación:</strong>
+  <span id="codigoCandidato">Sin identificar</span>
+</div>
+
 
   <p>
     Gracias por participar en nuestro proceso de selección.
@@ -396,6 +404,21 @@ window.addEventListener("beforeunload",()=>{
   if(flujo) flujo.getTracks().forEach(t=>t.stop());
   if(enlaceTemporal) URL.revokeObjectURL(enlaceTemporal);
 });
+  
+const parametrosCruzAzul =
+  new URLSearchParams(window.location.search);
+
+const codigoCruzAzul =
+  parametrosCruzAzul.get("codigo") || "";
+
+const codigoValidoCruzAzul =
+  /^CA-[A-Z0-9]{12}$/.test(codigoCruzAzul);
+
+elemento("codigoCandidato").textContent =
+  codigoValidoCruzAzul
+    ? codigoCruzAzul
+    : "No se recibió un código válido";
+
 </script>
 
 </body>
