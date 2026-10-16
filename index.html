@@ -189,6 +189,18 @@ footer{
   <a id="descarga" class="descarga">
     Descargar video de prueba
   </a>
+  
+<a id="enviarVideo"
+   href="https://docs.google.com/forms/d/e/1FAIpQLScH3ZsUaUGMsiJucMJpm83oRghBg7GLrY5QLSCQpITXGriLCQ/viewform"
+   target="_blank"
+   rel="noopener noreferrer"
+   style="display:none;background:#092c55;color:white;
+          padding:15px;border-radius:8px;
+          text-align:center;text-decoration:none;
+          margin:15px auto;max-width:350px;">
+  Enviar mi video a Recursos Humanos
+</a>
+
 
   <p class="nota">
     Esta es una versión de prueba. No se almacenan
@@ -328,6 +340,9 @@ function iniciarGrabacion(){
       enlace.download = "presentacion-cruz-azul." +
         (archivoVideo.type.includes("mp4") ? "mp4" : "webm");
       enlace.style.display = "block";
+      
+elemento("enviarVideo").style.display = "block";
+
 
       elemento("detener").disabled = true;
       elemento("repetir").disabled = false;
@@ -390,6 +405,9 @@ function repetirGrabacion(){
   reproductor.style.display = "none";
 
   elemento("descarga").style.display = "none";
+  
+elemento("enviarVideo").style.display = "none";
+
   elemento("descarga").removeAttribute("href");
   elemento("reloj").textContent = "01:30";
 
